@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebApp_Player_GIT.Models.Player>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Pname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Team)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Pid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Pid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Pid })
+        </td>
+    </tr>
+}
+
+</table>
